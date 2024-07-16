@@ -1,4 +1,31 @@
+@if ( loading ) {
+
+<div class="alert alert-info text-center" role="alert">
+  <h4 class="alert-heading col">Loading...</h4>
+  <p>
+    <i class="fa fa-sync fa-spin fa-2x"></i>
+  </p>
+  <p class="mb-0"></p>
+</div>
+
+} @else {
+
+@if ( error ) {
+
+<div class="alert alert-danger text-center" role="alert">
+  <h4 class="alert-heading col">Error: {{ error.name }}</h4>
+  <p>
+    <span>
+      {{ error.message }}
+    </span>
+  </p>
+  <p class="mb-0"></p>
+</div>
+
+} @else {
+
 <div class="row row-cols-1 row-cols-md-3 g-4">
+
   @for (user of users; track $index) {
 
   <div class="col">
@@ -20,5 +47,8 @@
 
   }
 
-
 </div>
+
+}
+
+}
